@@ -46,6 +46,7 @@ deny *
 $(awk -F "/" '{print "auth none\n" \
 "" $1 "\n" \
 "allow * 124.158.10.223 \n" \
+"deny * \n" \
 "proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
 "socks -6 -n -a -p" $4+10000 " -i" $3 " -e"$5"\n" \
 "flush\n"}' ${WORKDATA})
