@@ -41,6 +41,7 @@ setgid 65535
 setuid 65535
 stacksize 6291456 
 flush
+auth iponly strong
 deny *
 $(awk -F "/" '{print "auth none\n" \
 "" $1 "\n" \
