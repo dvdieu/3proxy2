@@ -123,7 +123,7 @@ ulimit -n 999999
 
 EOF
 
-bash /etc/rc.local
+# bash /etc/rc.local
 
 gen_proxy_file_for_user
 # rm -rf /root/3proxy-3proxy-0.8.6
