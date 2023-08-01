@@ -58,7 +58,7 @@ $(awk -F "/" '{print "auth iponly strong\n" \
 "allow * 124.158.10.223 \n" \
 "deny * \n" \
 "proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
-"socks -6 -n -a -olSO_REUSEADDR,SO_REUSEPORT -ocTCP_TIMESTAMPS,TCP_NODELAY -osTCP_NODELAY -p" $4+10000 " -i" $3 " -e"$5"\n" \
+"socks -s0 -6 -n -a -olSO_REUSEADDR,SO_REUSEPORT -ocTCP_TIMESTAMPS,TCP_NODELAY -osTCP_NODELAY -p" $4+10000 " -i" $3 " -e"$5"\n" \
 "flush\n"}' ${WORKDATA})
 EOF
 }
@@ -110,7 +110,7 @@ IP6=$(curl -6 -s icanhazip.com | cut -f1-7 -d':')
 echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
 FIRST_PORT=40000
-LAST_PORT=$(($FIRST_PORT + 1))
+LAST_PORT=$(($FIRST_PORT + 10))
 echo "LAST_PORT is $LAST_PORT. Continue..."
 
 gen_data >$WORKDIR/data.txt
@@ -121,8 +121,8 @@ chmod +x /${WORKDIR}/boot_*.sh /etc/rc.local
 gen_3proxy >/usr/local/etc/3proxy/3proxy.cfg
 
 cat >>/etc/rc.local <<EOF
-bash ${WORKDIR}/boot_iptables.sh
-bash ${WORKDIR}/boot_ifconfig.sh
+bash /${WORKDIR}/boot_iptables.sh
+bash /${WORKDIR}/boot_ifconfig.sh
 ulimit -n 999999
 
 EOF
