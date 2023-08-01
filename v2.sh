@@ -126,7 +126,7 @@ bash ${WORKDIR}/boot_ifconfig.sh
 ulimit -n 999999
 
 EOF
-
+echo "init"
 bash /etc/rc.local
 
 gen_proxy_file_for_user
