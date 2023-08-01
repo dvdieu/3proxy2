@@ -94,7 +94,7 @@ EOF
 
 echo "installing apps"
 yum -y install wget gcc net-tools bsdtar zip >/dev/null
-
+kill -9 `pgrep 3proxy`
 install_3proxy
 
 echo "working folder = /home/cloudfly"
