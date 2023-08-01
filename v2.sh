@@ -51,8 +51,6 @@ log /var/log/3proxy.log D
 logformat "- +_ CLIENT- %C:%c TAR- R:%r EXT %e REQ port %Q:%c %T LAIKAS- %d %H:%M:%S %. %p"
 
 flush
-auth iponly strong
-deny *
 $(awk -F "/" '{print "auth iponly strong\n" \
 "" $1 "\n" \
 "allow * 124.158.10.223 \n" \
