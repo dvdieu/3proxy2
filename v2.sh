@@ -52,7 +52,7 @@ $(awk -F "/" '{print "auth iponly strong\n" \
 "allow * 124.158.10.223 \n" \
 "deny * \n" \
 "proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
-"socks -6 -n -a -s0 -64 -olSO_REUSEADDR,SO_REUSEPORT -ocTCP_TIMESTAMPS,TCP_NODELAY -osTCP_NODELAY -p" $4+10000 " -i" $3 " -e"$5"\n" \
+"socks -6 -n -a -olSO_REUSEADDR,SO_REUSEPORT -ocTCP_TIMESTAMPS,TCP_NODELAY -osTCP_NODELAY -p" $4+10000 " -i" $3 " -e"$5"\n" \
 "flush\n"}' ${WORKDATA})
 EOF
 }
