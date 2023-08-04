@@ -90,8 +90,10 @@ yum -y install wget gcc net-tools bsdtar zip >/dev/null
 install_3proxy
 
 echo "working folder = /home/cloudfly"
+
 WORKDIR="/home/cloudfly"
 WORKDATA="${WORKDIR}/data.txt"
+rm -rf $WORKDIR
 mkdir $WORKDIR && cd $_
 
 IP4=$(curl -4 -s icanhazip.com)
