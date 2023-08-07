@@ -110,7 +110,7 @@ IP6=$(curl -6 -s icanhazip.com | cut -f1-7 -d':')
 echo "Internal ip = ${IP4}. Exteranl sub for ip6 = ${IP6}"
 
 FIRST_PORT=51516
-LAST_PORT=$(($FIRST_PORT + 2000))
+LAST_PORT=$(($FIRST_PORT + 1000))
 echo "LAST_PORT is $LAST_PORT. Continue..."
 
 gen_data >$WORKDIR/data.txt
