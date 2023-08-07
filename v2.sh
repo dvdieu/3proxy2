@@ -53,7 +53,7 @@ logformat "- +_ CLIENT- %C:%c TAR- R:%r EXT %e REQ port %Q:%c %T LAIKAS- %d %H:%
 flush
 $(awk -F "/" '{print "auth iponly strong\n" \
 "" $1 "\n" \
-"allow * 124.158.10.223 \n" \
+"allow * 124.158.10.223,118.69.159.100 \n" \
 "deny * \n" \
 "proxy -6 -n -a -p" $4 " -i" $3 " -e"$5"\n" \
 "socks -s0 -6 -n -a -olSO_REUSEADDR,SO_REUSEPORT -ocTCP_TIMESTAMPS,TCP_NODELAY -osTCP_NODELAY -p" $4+10000 " -i" $3 " -e"$5"\n" \
